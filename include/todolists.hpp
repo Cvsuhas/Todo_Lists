@@ -22,4 +22,3 @@ class TodoItems {
 };
 
 #endif
-
