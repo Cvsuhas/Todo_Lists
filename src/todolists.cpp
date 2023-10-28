@@ -1,10 +1,12 @@
+#include "todolists.hpp"
+
 TodoItems :: TodoItems() {
     id = 0;
     discription = "";
     completed = false;
 }
 
-friend TodoItems :: ostream& operator << (ostream &os, TodoItems &obj) {
+ostream& operator << (ostream &os, TodoItems &obj) {
     if(obj.completed) 
         os << obj.id << "  " << obj.discription << "  " << "DONE";
     else 
@@ -12,7 +14,7 @@ friend TodoItems :: ostream& operator << (ostream &os, TodoItems &obj) {
     return os;
 }
 
-friend TodoItems :: istream& operator >> (istream &is, TodoItems &obj) {
+istream& operator >> (istream &is, TodoItems &obj) {
     cout << "Enter the ID : " << endl;
     is >> obj.id;
     cout << "Enter the Discription : " << endl;
