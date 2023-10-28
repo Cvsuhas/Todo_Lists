@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <list>
+#include <limits>
 using namespace std;
 
 class TodoItems {
@@ -32,7 +33,8 @@ istream& operator >> (istream &is, TodoItems &obj) {
         cout << "Enter the ID : " << endl;
         is >> obj.id;
         cout << "Enter the Discription : " << endl;
-        is >> obj.discription;
+        is.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        getline(is,obj.discription);
         return is;
 }
 
@@ -67,8 +69,8 @@ int main() {
                 todolists.push_back(todo);
             }
                 break;
-            case 'b': {
-
+            case 'c': {
+                
             }
             case 'q': 
                 exit(0);
