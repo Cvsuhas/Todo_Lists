@@ -20,3 +20,11 @@ friend TodoItems :: istream& operator >> (istream &is, TodoItems &obj) {
     getline(is,obj.discription);
     return is;
 }
+
+int TodoItems :: GetId() {
+    return id;
+}
+
+void TodoItems :: SetComplete() {
+    completed = true;
+}
