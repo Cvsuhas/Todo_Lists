@@ -11,3 +11,4 @@
 ## Getting Started
 
 1. Clone the repository.
+2. Run the binary.sh script to get the executable todo
