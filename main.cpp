@@ -19,6 +19,8 @@ class TodoItems {
 
     friend ostream& operator << (ostream &os, TodoItems &obj);  // friend function for output object
     friend istream& operator >> (istream &is, TodoItems &obj);  // friend function for input object
+    int GetId();
+    void SetComplete();
 };
 
 ostream& operator << (ostream &os, TodoItems &obj) {
@@ -36,6 +38,14 @@ istream& operator >> (istream &is, TodoItems &obj) {
         is.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         getline(is,obj.discription);
         return is;
+}
+
+int TodoItems :: GetId() {
+    return id;
+}
+
+void TodoItems :: SetComplete() {
+    completed = true;
 }
 
 int main() {
@@ -70,8 +80,17 @@ int main() {
             }
                 break;
             case 'c': {
-                
+                int c_completed;
+                cout<<"Enter the ID to be completed"<<endl;
+                cin>>c_completed;
+                for(it = todolists.begin(); it != todolists.end(); it++) {
+                    if(c_completed == it->GetId()) {
+                        it->SetComplete();
+                        break;
+                    }
+                }
             }
+                break;
             case 'q': 
                 exit(0);
         }
